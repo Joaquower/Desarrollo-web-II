@@ -1,0 +1,26 @@
+ul {
+    list-style: none;
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+li {
+    background: #3a3d54;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+li:hover {
+    background: #ff5722;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.5);
+}
+
+.sex {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}

@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
+from django.shortcuts import render
+
 
 def home(request):
-    return HttpResponse("Hola, Django está funcionando correctamente.")
+    return render(request, 'home.html')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
