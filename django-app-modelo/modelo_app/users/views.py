@@ -12,6 +12,15 @@ def indexUsers(request):
     }
     return render(request, 'users/index.html', data)
 
+def createUserByFetch(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    
+    return JsonResponse({
+        "NOMBRE_RECIBIDO": body.get('name'),
+    })
+
+
 def createUserView(request):
     return render(request, 'users/create.html')
 

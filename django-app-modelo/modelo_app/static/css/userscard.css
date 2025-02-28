@@ -1,0 +1,39 @@
+.user {
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    display: flex; /* Flexbox para alinear elementos */
+    align-items: center; /* Centra verticalmente */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px; /* Espaciado externo */
+    transition: transform 0.2s; /* Transición para el efecto hover */
+}
+
+.user:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+}
+
+.user img {
+    border-radius: 50%; /* Imagen circular */
+    width: 80px; /* Ancho de la imagen */
+    height: 80px; /* Alto de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.user p {
+    margin: 5px 0; /* Espaciado entre párrafos */
+    color: #333; /* Color del texto */
+}
+
+.user-actions a {
+    text-decoration: none; /* Sin subrayado */
+    color: #007bff; /* Color del enlace */
+    font-weight: bold; /* Texto en negrita */
+    transition: color 0.2s; /* Transición para el color */
+}
+
+.user-actions a:hover {
+    color: #0056b3; /* Color del enlace al pasar el ratón */
+}

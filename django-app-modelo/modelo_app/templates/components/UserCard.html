@@ -1,7 +1,10 @@
-
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/userscard.css' %}">
+{% endblock %}
 <div class="user">
     <div>
-        <img src="" alt="">
+        <img src={% static 'Img/TortugaSexi.jpeg' %} alt="">
     </div>
     <div>
         <p><strong>Name:</strong> <br> {{name}} </p>
