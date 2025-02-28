@@ -2,9 +2,11 @@
 <div class="evento-card">
     <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento" class="evento-img">
     <div class="evento-info">
-        <h3>{{ evento.nombre }}</h3>
+        <h3>{{ evento.name }}</h3>
         <p><strong>Localidad:</strong> {{ evento.localidad }}</p>
-        <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum, dicta cupiditate quod reiciendis temporibus alias quasi impedit in quibusdam debitis? Aspernatur obcaecati sunt ducimus reiciendis iste amet repellat officiis.</p>
+        <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum, dicta
+            cupiditate quod reiciendis temporibus alias quasi impedit in quibusdam debitis? Aspernatur obcaecati sunt
+            ducimus reiciendis iste amet repellat officiis.</p>
         <a href="{% url 'boletos' %}" class="btn-boletos">Boletos</a>
     </div>
 </div>
