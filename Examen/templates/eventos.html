@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/eventos.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="titulo-eventos">Eventos</h1>
+
+<div class="eventos-container">
+    {% for evento in eventos %}
+        {% include 'components/evento_card.html' %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+<nav>
+    <ul>
+        <li><a class="sex" href="{% url 'home' %}">Home</a></li>
+        <li><a class="sex" href="{% url 'eventos' %}">Eventos</a></li>
+        <li><a class="sex" href="{% url 'boletos' %}">Boletos</a></li>
+    </ul>
+</nav>

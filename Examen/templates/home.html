@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Sección de imágenes destacadas -->
+<div class="imagenes-destacadas">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento 1">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento 2">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento 3">
+</div>
+
+<!-- Sección de imágenes de carnaval -->
+<div class="imagenes-carnaval">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Carnaval 1">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Carnaval 2">
+    <img src="{% static 'img/eventoimg.jpg' %}" alt="Carnaval 3">
+</div>
+
+<!-- Sección de Noticias -->
+<h2 class="titulo-noticias">NOTICIAS</h2>
+
+<div class="noticias-container">
+    <div class="noticia">
+        <img src="{% static 'img/eventoimg.jpg' %}" alt="Noticia">
+        <div class="noticia-info">
+            <h3>Noticia</h3>
+            <p>El carnaval de Barranquilla es una de las festividades más importantes de Colombia y uno de los carnavales más grandes del mundo...</p>
+        </div>
+    </div>
+
+    <div class="noticia">
+        <img src="{% static 'img/eventoimg.jpg' %}" alt="Noticia">
+        <div class="noticia-info">
+            <h3>Noticia</h3>
+            <p>El carnaval de Barranquilla es una de las festividades más importantes de Colombia y uno de los carnavales más grandes del mundo...</p>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Eventos Recientes -->
+<div class="eventos-recientes">
+    <div class="evento">
+        <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento">
+        <div class="evento-info">
+            <h3>Evento #1</h3>
+            <p><strong>Localidad:</strong> Barranquilla</p>
+            <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet...</p>
+        </div>
+    </div>
+
+    <div class="evento">
+        <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento">
+        <div class="evento-info">
+            <h3>Evento #1</h3>
+            <p><strong>Localidad:</strong> Barranquilla</p>
+            <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet...</p>
+        </div>
+    </div>
+
+    <div class="evento">
+        <img src="{% static 'img/eventoimg.jpg' %}" alt="Evento">
+        <div class="evento-info">
+            <h3>Evento #1</h3>
+            <p><strong>Localidad:</strong> Barranquilla</p>
+            <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet...</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
