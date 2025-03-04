@@ -1,147 +1,128 @@
-/* Sección de imágenes destacadas y carnaval */
-.imagenes-destacadas, .imagenes-carnaval {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-.imagenes-destacadas img, .imagenes-carnaval img {
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.banner-item {
+    width: 50%;
+}
+
+.banner-item img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
 }
 
-.imagenes-destacadas img:hover, .imagenes-carnaval img:hover {
-    transform: scale(1.05);
+/* Segunda Fila de Imágenes */
+.imagenes-carnaval {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.carnaval-small {
+    width: 25%;
+}
+
+.carnaval-large {
+    width: 50%;
+}
+
+.carnaval-small img,
+.carnaval-large img {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
 }
 
 /* Noticias */
+/* Noticias y Eventos Contenedor */
 .titulo-noticias {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 30px;
-    color: #333;
+    text-align: center; /* Centra el texto horizontalmente */
+    display: block; /* Asegura que ocupe todo el ancho */
+    margin: 50px auto; /* Ajusta el margen superior/inferior y centra horizontalmente */
 }
 
-.noticias-container {
+.noticias-eventos-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 20px auto;
-    flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+/* Noticias */
+.noticias {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .noticia {
     display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 48%;
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
+    flex-direction: column;
+    background-color: white;
+
+    width: 100%;
+    height: 450px; /* Asegura que tenga una altura mayor que su ancho */
+    max-width: 700px; /* Para que no se haga demasiado ancha */
 }
 
-.noticia:hover {
-    transform: scale(1.02);
-}
-
+/* Ajustar la imagen para que sea más ancha que alta */
 .noticia img {
-    width: 40%;
-    object-fit: cover;
+    width: 100%;
+    height: 60%; /* Ajusta el alto de la imagen para que no sea cuadrada */
+    object-fit: cover; /* Recorta la imagen para llenar el espacio */
 }
 
+/* Ajustar el texto para que ocupe menos espacio */
 .noticia-info {
     padding: 15px;
-    flex: 1;
+    height: 40%; /* Para que no se expanda demasiado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.noticia-info h3 {
-    font-size: 1.5rem;
-    color: #444;
-}
 
-.noticia-info p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* Eventos Recientes */
-.eventos-recientes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
+/* Eventos */
+.eventos {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .evento {
     display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-}
-
-.evento:hover {
-    transform: scale(1.02);
+    background-color: white;
+    width: 100%;
 }
 
 .evento img {
     width: 40%;
+    height: auto;
     object-fit: cover;
 }
 
 .evento-info {
     padding: 15px;
-    flex: 1;
-}
-
-.evento-info h3 {
-    font-size: 1.5rem;
-    color: #444;
-}
-
-.evento-info p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .imagenes-destacadas, .imagenes-carnaval {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .noticia, .evento {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .noticia img, .evento img {
-        width: 100%;
-        height: auto;
-    }
-
-    .eventos-recientes {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .imagenes-destacadas, .imagenes-carnaval {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .eventos-recientes {
-        grid-template-columns: repeat(1, 1fr);
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

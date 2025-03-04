@@ -8,6 +8,9 @@
 {% block content %}
 <h1 class="titulo-eventos">Eventos</h1>
 
+<a href="{% url 'formulario_eventos' %}">Agregar Evento</a>
+
+
 <div class="eventos-container">
     {% for evento in eventos %}
         {% include 'components/evento_card.html' %}

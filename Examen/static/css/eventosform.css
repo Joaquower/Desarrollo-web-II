@@ -1,0 +1,115 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1a2a4f;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.navbar a {
+    color: purple;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+/* Título */
+.titulo-eventos {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Formulario */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-right: 400px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container label {
+    font-weight: bold;
+}
+
+.form-container button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 20%;
+    display: block;  /* Asegura que ocupe todo el ancho disponible */
+    margin: 10px auto;  /* 🔹 Esto lo centra horizontalmente */
+}
+
+
+.form-container button:hover {
+    background-color: #444;
+}
+
+/* Tabla */
+h2 {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    background-color: white;
+}
+
+/* Botón eliminar */
+.botonsexi{
+    background-color: rgb(201, 26, 26);
+    color: white;
+}
