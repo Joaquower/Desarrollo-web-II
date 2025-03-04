@@ -10,9 +10,9 @@
 <script defer src="{% static 'js/eventos.js' %}"></script>
 <!-- Formulario de eventos -->
 <div class="container">
-    <h1 class="titulo-eventos">Agregar evento</h1>
 
     <div class="form-container">
+        <h1 class="titulo-eventos">Agregar evento</h1>
         <input type="text" id="nombre_evento" placeholder="Nombre del evento">
         <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
 

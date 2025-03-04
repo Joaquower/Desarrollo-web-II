@@ -92,3 +92,57 @@ def eventos_lista(request):
 def formulario_eventos(request):
     localidades = Localidades.objects.all()
     return render(request, "formulario_eventos.html", {"localidades": localidades})
+
+
+#seccion de productos
+
+def productos_lista(request):
+    productos = Productos.objects.all()
+    return render(request, "formulario_productos.html", {"productos":productos})
+
+def productos_lista(request):
+    productos = Producto.objects.all().values("id", "name", "precio", "localidad")
+    return JsonResponse({"productos": list(productos)}, status=200)
+
+
+@csrf_exempt  # Desactivar CSRF solo para pruebas (Recomendado implementar CSRF Token en producción)
+def eliminar_producto(request, producto_id):
+    if request.method == "DELETE":
+        try:
+            producto = get_object_or_404(Evento, id=producto_id)
+            producto.delete()
+            return JsonResponse({"success": "Producto eliminado exitosamente"}, status=200)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+    else:
+        return JsonResponse({"error": "Método no permitido"}, status=405)
+
+@csrf_exempt  # Desactiva temporalmente la protección CSRF
+def agregar_producto(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)  
+            name = data.get("name")
+            precio = data.get("precio")
+            localidad_id = data.get("localidad")
+
+            if not name or not fecha_inicio or not fecha_fin or not localidad_id:
+                return JsonResponse({"error": "Todos los campos son obligatorios"}, status=400)
+
+            localidad = Localidades.objects.get(id=localidad_id)
+
+            productos = Producto.objects.create(
+                name=name,
+                precio=precio,
+                localidad=localidad
+            )
+            return JsonResponse({"success": "Producto agregado exitosamente", "producto": {
+                "id": precio.id,
+                "name": precio.name,
+                "precio": precio.precio,
+                "localidad": localidad.name
+            }}, status=201)
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+
