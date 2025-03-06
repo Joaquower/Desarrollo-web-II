@@ -1,0 +1,15 @@
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/boletos.css' %}">
+{% endblock %}
+
+
+<div class="boleto-card">
+    <img src="{% static 'img/boletoimg.png' %}" alt="Boleto" class="boleto-img">
+    <h3>{{ boleto.evento }}</h3>
+    <p><strong>Tipo de Boleto:</strong> {{ boleto.tipo_boleto.name }}</p>
+
+    <p><strong>Localidad:</strong> {{ boleto.evento.localidad }}</p>
+    <p><strong>Precio:</strong> ${{ boleto.precio }}</p>
+    <button class="btn-comprar">Comprar</button>
+</div>
