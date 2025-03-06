@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/producto.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<script defer src="{% static 'js/productos.js' %}"></script> 
+
+<div class="container">
+
+    <div class="form-container">
+        <h1 class="titulo-productos">Agregar producto</h1>
+        <input type="text" id="nombre_producto" placeholder="Nombre del producto ...">
+        <input type="number" id="precio_producto" placeholder="Precio del producto">
+        
+        <label for="fecha_inicio">Fecha inicio</label>
+        <input type="datetime-local" id="fecha_inicio">
+    
+        <label for="fecha_fin">Fecha fin</label>
+        <input type="datetime-local" id="fecha_fin">
+    
+        <label for="localidad">Localidad</label>
+        <select id="localidad">
+            {% for loc in localidades %}
+            <option value="{{ loc.id }}">{{ loc.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+
+        <button id="agregar_producto">Agregar Producto</button>
+    </div>
+    
+
+    <h2>Productos recientemente agregados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Fecha inicio</th>
+                <th>Fecha fin</th>
+                <th>Localidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="productos_lista">
+            <!-- Aquí se llenará la tabla dinámicamente -->
+        </tbody>
+    </table>
+    
+</div>
+
+{% endblock %}

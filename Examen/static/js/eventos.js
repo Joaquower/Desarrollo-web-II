@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    cargarEventos(); // Cargar los eventos al iniciar
+    cargarEventos(); 
 
     document.getElementById("agregar").addEventListener("click", function () {
         agregarEvento();
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cargarEventos() {
-    fetch("/eventos/lista/")  // Cambia "/eventos/" por "/eventos/lista/"
+    fetch("/eventos/lista/")  
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error HTTP: ${response.status}`);
@@ -16,7 +16,7 @@ function cargarEventos() {
         })
         .then(data => {
             const tbody = document.getElementById("eventos_lista");
-            tbody.innerHTML = ""; // Limpiar la tabla antes de volver a cargarla
+            tbody.innerHTML = ""; 
 
             data.eventos.forEach(evento => {
                 const fila = `<tr>
@@ -25,10 +25,10 @@ function cargarEventos() {
                     <td>${evento.fecha_fin}</td>
                     <td>${evento.localidad__name}</td>
                     <td>
-                        <button class="botonsexi" onclick="eliminarEvento(${evento.id})" ">Eliminar</button>
+                        <button class="botonsexi" onclick="eliminarEvento(${evento.id})">Eliminar</button>
                     </td>
                 </tr>`;
-                tbody.innerHTML += fila;
+                tbody.insertAdjacentHTML("beforeend", fila); 
             });
         })
         .catch(error => console.error("Error al cargar eventos:", error));
@@ -41,9 +41,36 @@ function agregarEvento() {
     const localidad = document.getElementById("localidad").value;
     const csrfToken = document.getElementById("csrf_token").value;
 
+
+    const hoy = new Date();
+    hoy.setDate(hoy.getDate() - 1); 
+    hoy.setHours(0, 0, 0, 0); 
+    
+    console.log("Hoy (ahora es ayer):", hoy);
+    
+
+    const fechaInicioObj = new Date(fechaInicio);
+    fechaInicioObj.setHours(0, 0, 0, 0); 
+    const fechaFinObj = new Date(fechaFin);
+
+    if (!nombre || !fechaInicio || !fechaFin || !localidad) {
+        alert("Todos los campos son obligatorios");
+        return;
+    }
+
+    if (fechaFinObj < fechaInicioObj) {
+        alert("La fecha de fin no puede ser menor que la fecha de inicio.");
+        return;
+    }
+
+    if (fechaInicioObj < hoy) {  
+        alert("La fecha de inicio debe ser mayor al día de hoy.");
+        return;
+    }
+
     fetch("/eventos/agregar/", {
         method: "POST",
-        headers: { 
+        headers: {
             "Content-Type": "application/json",
             "X-CSRFToken": csrfToken
         },
@@ -66,13 +93,14 @@ function agregarEvento() {
     .catch(error => console.error("Error al agregar evento:", error));
 }
 
+
 function eliminarEvento(eventoId) {
     const csrfToken = document.getElementById("csrf_token") ? document.getElementById("csrf_token").value : "";
 
     fetch(`/eventos/eliminar/${eventoId}/`, {
         method: "DELETE",
         headers: {
-            "X-CSRFToken": csrfToken,  // Agrega el token CSRF si es necesario
+            "X-CSRFToken": csrfToken
         },
     })
     .then(response => {
