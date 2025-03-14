@@ -73,3 +73,14 @@
 .btn-boletos:hover {
     background-color: #0056b3;
 }
+.boyonsito{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width:100%;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    box-shadow: #0056b3;
+}
