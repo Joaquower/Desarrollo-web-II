@@ -1,75 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-        <!-- Agregar el script de Babel -->
-        <script src="https://unpkg.com/@babel/standalone"></script>
-        <script type="text/babel" src="components/MyButton.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <div id="root">
+<html lang="es">
 
-        </div>
-    </body>
-    <script type="text/babel">
-        function Saludar(params) {
-            alert("hola");
-        }
-        
-        function Despedir(params) {
-            alert("adios");
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Agregar el script de Babel -->
+    <script src="https://unpkg.com/@babel/standalone"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-        function App() {
-            const { useState } = React;
-            const [ contador, setContador ] = useState(0);
-            const [ contador2, setContador2 ] = useState(0);
-            const [ visible, setvisible ] = useState(false);
-            const [ alumnos, setAlumnos ] = useState(["juan", "pedro", "maria", "luis", "jose"]);
-            const [ alumnoCalificacion, setAlumnoCalificacion ] = useState([
-                {nombre:"juan", calificacion: 10},
-                {nombre:"pedro", calificacion: 9},
-                {nombre:"maria", calificacion: 8},
-                {nombre:"luis", calificacion: 7},
-                {nombre:"jose", calificacion: 6},
-            ]);
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    function MyButton({ titulo, contador, setContador }) {
+        return (
+            <button onClick={() => setContador(contador + 1)}>
+                {titulo}
+            </button>
+        );
+    }
 
-            function verParrafo() {
-                setvisible(!visible);
-            }
-            return (
+    function AlumnoInfo({ alumno, eliminarAlumno }) {
+        return (
+            <div className="alumno-card">
+                <button onClick={() => eliminarAlumno(alumno.nombre)}>
+                    Ocultar Alumno
+                </button>
                 <div>
-                    <h1>¡Hola, mundo!</h1>
-                    <p>Esto es un ejemplo de React.</p>
-                    <MyButton titulo="Saludar" contador={contador} setContador={setContador}/>
-                    <h2>Contador 1 {contador}</h2>
-                    <br/>
-                    <MyButton titulo="Despedir" contador={contador2} setContador={setContador2}/>
-                    <h2>Contador 2 {contador2}</h2>
-                    
-                    <button onClick={verParrafo}>ver</button>
-
-                    <div className="container">
-                        {alumnoCalificacion.filter((alumno) => alumno.calificacion > 7).map((alumno, index) => {
-                            return (
-                                <div style={{ display: visible ? 'block' : 'none' }}>
-                                    <p>Nombre: {alumno.nombre}</p>
-                                    <p>Calificacion: {alumno.calificacion}</p>
-                                </div>
-                            )
-                        })}
-                    </div>
-
-                    
+                    <p><strong>Nombre:</strong> {alumno.nombre}</p>
+                    <p><strong>Calificación:</strong> {alumno.calificacion}</p>
+                    <p><strong>Materia:</strong> {alumno.Materia}</p>
                 </div>
-            );
+            </div>
+        );
+    }
+
+    function App() {
+        const { useState } = React;
+
+        // Lista original de alumnos
+        const listaOriginal = [
+            { nombre: "joaquin", calificacion: 10, Materia: "quimica" },
+            { nombre: "ana", calificacion: 10, Materia: "fisica" },
+            { nombre: "luisa", calificacion: 10, Materia: "historia" },
+            { nombre: "julian", calificacion: 7, Materia: "matematicas" },
+            { nombre: "sebastian", calificacion: 6, Materia: "español" },
+        ];
+
+        const [contador, setContador] = useState(0);
+        const [contador2, setContador2] = useState(0);
+        const [alumnoCalificacion, setAlumnoCalificacion] = useState(
+            listaOriginal.filter(alumno => alumno.calificacion > 7)
+        );
+
+        // Función para eliminar un alumno al presionar "Ocultar Alumno"
+        function eliminarAlumno(nombre) {
+            setAlumnoCalificacion(alumnoCalificacion.filter(alumno => alumno.nombre !== nombre));
         }
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+
+        // Función para restaurar todos los alumnos
+        function restaurarAlumnos() {
+            setAlumnoCalificacion(listaOriginal);
+        }
+
+        return (
+            <div>
+                <h1>¡Hola, mundo!</h1>
+                <p>Esto es un ejemplo de React.</p>
+
+                <MyButton titulo="Saludar" contador={contador} setContador={setContador} />
+                <h2>Contador 1: {contador}</h2>
+                <br />
+                <MyButton titulo="Despedir" contador={contador2} setContador={setContador2} />
+                <h2>Contador 2: {contador2}</h2>
+
+                <h2>Lista de alumnos</h2>
+                <button onClick={restaurarAlumnos}>Restaurar</button> {/* Botón para restaurar alumnos */}
+                
+                <div className="container">
+                    {alumnoCalificacion.map((alumno, index) => (
+                        <AlumnoInfo key={index} alumno={alumno} eliminarAlumno={eliminarAlumno} />
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+
 </html>
