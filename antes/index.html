@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone"></script>
+    <script type="text/babel" src="/context/count-context.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+    const { createContext, useState } = React;
+    //const  countContext  = createContext(null);
+    const { CountContext, CountContextProvider } = window
+    const UserContext = createContext(null);
+
+    function App() {
+        const [count, setCount] = useState(0);
+        const [countRestar, setCountRestar] = useState(0);
+        const [user, setUser] = useState({
+            name: "Joaquin",
+            age: 20,
+            email: "Joaq@gamil"
+        })
+        return (
+            <div>
+                <CountContextProvider value={{ count, setCount, countRestar, setCountRestar }}>
+                    <Component1 />
+                    <Component2 />
+                </CountContextProvider>
+
+                <UserContext.Provider value={{ user, setUser }}>
+                    <ProfileUser />
+                    <SearchUser />
+                </UserContext.Provider>
+            </div>
+        )
+    }
+    function ProfileUser() {
+        const { user, setUser } = React.useContext(UserContext);
+        return (
+            <div>
+                <h2>Perfil</h2>
+                <p>Nombre: {user.name}</p>
+                <p>Edad: {user.age}</p>
+                <p>Email: {user.email}</p>
+            </div>
+        )
+    }
+
+    function SearchUser() {
+        const { user, setUser } = React.useContext(UserContext);
+
+        return (
+            <div>
+                <h1>Buscardor de usuarios</h1>
+                <label >Nombre a buscar</label>
+                <input value={user.name} onChange={buscarUsuario} />
+
+                <label>Edad a buscar</label>
+                <input value={user.age} />
+
+                <label>Correo a buscar</label>
+                <input value={user.email} />
+            </div>
+        )
+    }
+
+    function buscarUsuario(event) {
+
+        console.log(event.target.value);
+
+    }
+
+    function Component1() {
+        const { count, setCount } = React.useContext(CountContext);
+        console.log("Render Component1");
+        return (
+            <div>
+                <button onClick={() => setCount(count + 1)} >Incrementar</button>
+                <h1>Componente 1</h1>
+                <p>Este es el componente 1</p>
+                <p>Contador: {count}</p>
+            </div>
+        )
+    }
+    function Component2() {
+        const { countRestar, setCountRestar } = React.useContext(CountContext);
+        console.log("Render Component1");
+        return (
+            <div>
+
+                <h1>Componente 2</h1>
+                <p>Contador: {countRestar}</p>
+                <button onClick={() => setCountRestar(countRestar - 1)} >Restar</button>
+            </div>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+
+</html>

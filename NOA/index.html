@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Viento en Tiempo Real - ArcGIS</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.32/"></script>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewDiv"></div>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/ImageryLayer",
+            "esri/renderers/VectorFieldRenderer"
+        ], function(Map, MapView, ImageryLayer, VectorFieldRenderer) {
+
+            // Crear el mapa
+            const map = new Map({
+                basemap: "gray-vector" // Mapa base en tonos grises
+            });
+
+            // Crear la vista del mapa
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-86.79447349643594, 21.00982952779426], 
+                zoom: 4
+            });
+
+            // URL del servicio de datos de viento de NOAA
+            const windServiceUrl = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/ScientificData/NDFD_wind/ImageServer";
+
+            // Crear la capa de imágenes con el renderizador de campo vectorial
+            const windLayer = new ImageryLayer({
+                url: windServiceUrl,
+                renderer: new VectorFieldRenderer({
+                    style: "flow-line", // Estilo de línea de flujo
+                    flowRepresentation: "flow-from", // Representación del flujo
+                    lineWidth: "2px", // Grosor de las líneas
+                    lineColor: "rgba(0, 0, 255, 0.7)", // Color de las líneas (azul con transparencia)
+                    density: 1.5, // Densidad de las líneas
+                    maxSpeed: 25 // Velocidad máxima para la escala de colores
+                })
+            });
+
+            // Agregar la capa de viento al mapa
+            map.add(windLayer);
+
+            // Manejar errores de carga de la capa
+            windLayer.when(() => {
+                console.log("Capa de viento cargada correctamente.");
+            }).catch((error) => {
+                console.error("Error al cargar la capa de viento:", error);
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!--
+    Explicación del Código
+Configuración del Mapa y la Vista: Se crea un mapa con un mapa base en tonos grises y una vista centrada en las coordenadas [-95, 35], que corresponde a una ubicación central en los Estados Unidos, con un nivel de zoom de 4.​
+
+Servicio de Datos de Viento: Se utiliza el servicio de imágenes de NOAA disponible en ArcGIS Online para obtener datos de viento.​
+
+Capa de Imágenes con Renderizador de Campo Vectorial: Se crea una capa de imágenes (ImageryLayer) utilizando el servicio de datos de viento. A esta capa se le aplica un VectorFieldRenderer con las siguientes propiedades:​
+
+style: "flow-line": Muestra líneas de flujo animadas que representan la dirección y velocidad del viento.​
+
+flowRepresentation: "flow-from": Las líneas de flujo indican la dirección desde la cual sopla el viento.​
+
+lineWidth: "2px": Grosor de las líneas de flujo.​
+
+lineColor: "rgba(0, 0, 255, 0.7)": Color azul semitransparente para las líneas de flujo.​
+
+density: 1.5: Densidad de las líneas de flujo en el mapa.​
+
+maxSpeed: 25: Velocidad máxima considerada para la escala de colores de las líneas de flujo.​
+
+Manejo de Errores: Se implementa una función para manejar posibles errores al cargar la capa de viento, proporcionando información en la consola en caso de que ocurra algún problema.​
+
+Notas Importantes
+Disponibilidad del Servicio: El servicio de datos de viento utilizado en este ejemplo es proporcionado por NOAA a través de ArcGIS Online. La disponibilidad y actualización de los datos dependen de este servicio.​
+
+Personalización: Puedes ajustar las propiedades del VectorFieldRenderer (como el color, grosor y densidad de las líneas) para adaptarlas a las necesidades específicas de tu aplicación.​
+
+Compatibilidad: Este código utiliza la versión 4.32 de la API de ArcGIS para JavaScript. Asegúrate de que tu entorno de desarrollo sea compatible con esta versión.​
+
+Esta implementación debería proporcionarte una visualización interactiva y en tiempo real de los datos de viento, utilizando las capacidades de la API de ArcGIS para JavaScript y los datos meteorológicos de NOAA.
+
+
+-->
