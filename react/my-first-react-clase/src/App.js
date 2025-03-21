@@ -1,18 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import MyFirstComponent from './components/MyFirstComponent'
-import Form from './components/Form/Form'
-import Profile from './components/Profile'
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import MyRouters from "./router/Router";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <MyFirstComponent />
-      <Form />
-      <Profile />
-
-    </div>
+    <BrowserRouter>
+      <MyRouters />
+    </BrowserRouter>
   );
 }
-
-export default App;

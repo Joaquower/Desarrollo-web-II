@@ -1,18 +1,20 @@
-import {UserContext,UserContextProvider} from '../context/user-context'
-import {useContext} from 'react'
+import { UserContext, UserContextProvider } from "../context/user-context"
+import { useContext } from "react"
 
-export default function Profile(){
-    return(
-        <UserContextProvider>
-            <ProfileContent/>
-        </UserContextProvider>
+export default function Profile() {
+    return (
+
+        <ProfileContent />
+
     )
-
 }
 
-function ProfileContent(){
-    const {user} = useContext(UserContext)
-    return(
+
+function ProfileContent() {
+
+    const { user } = useContext(UserContext)
+
+    return (
         <div>
             <h1>Profile</h1>
             <p>Name: {user.name}</p>
@@ -20,5 +22,4 @@ function ProfileContent(){
             <p>Age: {user.age}</p>
         </div>
     )
-    
 }

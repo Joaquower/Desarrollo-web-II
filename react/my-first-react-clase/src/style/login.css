@@ -1,0 +1,106 @@
+/* Asegurar que el cuerpo de la página use Flexbox */
+body {
+    background-color: #1c1f26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: #252a34;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 460px; /* Más ancho */
+    height: auto; /* Permite que crezca con el contenido */
+    text-align: left;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor interno para distribuir bien los inputs */
+.form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Espaciado uniforme */
+    margin-top: 5px;
+    padding: 0 10px; /* Agrega margen interno para evitar bordes pegados */
+}
+
+/* Estilo del título */
+h2 {
+    margin-bottom: 10px; /* Menos separación con los campos */
+    font-size: 26px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Estilo de las etiquetas */
+label {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 30px;
+    display: block;
+    font-size: 16px; /* Un poco más grande */
+}
+
+/* Ajustar tamaño de inputs */
+/* Ajustar tamaño de inputs */
+input {
+    width: 100%;
+    padding: 12px; /* Ajustar altura */
+    padding-left: 15px; /* Espacio interno izquierdo */
+    border: 2px solid white;
+    border-radius: 25px;
+    background-color: #252a34;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box; /* Evita que el padding haga crecer el input */
+}
+
+/* Placeholder centrado */
+input::placeholder {
+    color: #bbb;
+    font-size: 14px;
+    line-height: normal; /* Asegura que el texto se mantenga alineado */
+    text-align: left;
+}
+
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px; /* Reducimos el espacio antes del botón */
+    border-radius: 25px;
+    background-color: white;
+    color: #252a34;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}

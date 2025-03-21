@@ -1,53 +1,54 @@
-import MyInput from "./Myinput"
+import MyInput from "./MyInput"
 import "../../style/form.css"
 import { useContext } from "react"
-import { UserContext, UserContextProvider } from "../../context/user-context"
+import { UserContext } from "../../context/user-context"
+
 
 
 export default function Form() {
+
     return (
-        <UserContextProvider>
-            <FormContent />
-        </UserContextProvider>
+
+        <FormContent />
+
     )
 }
+
 
 function FormContent() {
     const { user, setUser } = useContext(UserContext)
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        console.log(name, value)
+        const { name, value } = e.target;
+
         setUser(prevUser => ({
             ...prevUser,
             [name]: value
-        }))
-    }
-
+        }));
+    };
     const inputName = {
-        type: 'text',
-        placeholder: 'Name',
-        value: user.name,
-        onChange: handleChange,
-        name: 'name'
+        type: "text",
+        placeholder: "Name",
+        valor: user.name,
+        funcion: handleChange,
+        name: "name"
     }
     const inputEmail = {
-        type: 'email',
-        placeholder: 'Email',
-        value: user.email,
-        onChange: handleChange,
-        name: 'email'
+        type: "email",
+        placeholder: "Email",
+        valor: user.email,
+        funcion: handleChange,
+        name: "email"
     }
     const inputAge = {
-        type: 'number',
-        placeholder: 'Age',
-        value: user.age,
-        onChange: handleChange,
-        name: 'age'
+        type: "number",
+        placeholder: "Age",
+        valor: user.age,
+        funcion: handleChange,
+        name: "age"
     }
-
     return (
-        <form class="myForm">
+        <form className="myForm">
             <div>
                 <MyInput {...inputName} />
             </div>
