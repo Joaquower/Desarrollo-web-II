@@ -87,7 +87,7 @@ async function fetchLogin(data, navigate) {
     if (!result.accessToken) {
       alert("Invalid user or password");
     } else {
-      alert("Welcome");
+      alert("continuar");
 
       localStorage.setItem("token", result.accessToken);
       console.log("Token guardado en localStorage:", localStorage.getItem("token"));
