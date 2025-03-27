@@ -1,17 +1,23 @@
-import '../style/products.css'
-import ProductItem from '../components/ProductItem'
+import ProductListItem from "../components/ProductItem";
+import "../style/products.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-export default function Products() {
+export default function ProductsList() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const hasTokenInLocalStorage = localStorage.getItem("token") !== null;
+        if (!hasTokenInLocalStorage) {
+            navigate("/login"); 
+        }
+    }, [navigate]);
+
     return (
-        <div>            
-            <h1 >We release interesting articles</h1>
-            <h1 className="osi" >about technology</h1>
-            <h1 className="osa">///////////////////////////</h1>
-            <div className='container-products'>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-            </div>
+        <div className="container-products">
+            <ProductListItem />
+            <ProductListItem />
+            <ProductListItem />
         </div>
-    )
+    );
 }

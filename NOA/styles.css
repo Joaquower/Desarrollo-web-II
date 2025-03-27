@@ -19,3 +19,17 @@ h1 {
     border: 2px solid white;
     border-radius: 10px;
 }
+
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.linea-viento {
+    transition: all 0.3s linear;
+}
+
+.flecha-viento {
+    transition: all 0.3s linear;
+}
