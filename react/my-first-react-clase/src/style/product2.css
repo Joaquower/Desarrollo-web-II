@@ -1,0 +1,128 @@
+/* Contenedor principal del producto */
+.product-detail {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    background-color: #f5f5f5;
+}
+
+/* Caja blanca con sombra para el producto */
+.product-info {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Título del producto */
+.product-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+/* Descripción */
+.product-info p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Imagen del producto */
+.product-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de "Agregar al carrito" estilo Amazon */
+.add-to-cart-button {
+    background: #ffd814;
+    color: #111;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background: #f7ca00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-info {
+        width: 90%;
+    }
+}
+
+/* Precio en la página del producto */
+.product-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #B12704; /* Rojo como en Amazon */
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* Contenedor de los botones de cantidad */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Botones de aumentar/disminuir cantidad */
+.quantity-btn {
+    background-color: #0073e6;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #005bb5;
+}
+
+.quantity-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Input de cantidad */
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}

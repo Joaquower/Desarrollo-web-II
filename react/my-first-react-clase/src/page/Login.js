@@ -15,7 +15,6 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,38 +32,30 @@ export default function Login() {
     await fetchLogin(data, navigate);
   };
 
-
-
   return (
-    <div>
-      <div className="containerLogin">
-        <h3>Login</h3>
-        <form className="formLogin" onSubmit={handleSubmit}>
-          <div className="input-container">
-            <p>Name</p>
+    <div className="login-container">
+      <div className="login-card">
+        <h3>Iniciar Sesión</h3>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="input-group">
             <input
-              className="login-input"
               type="text"
-              placeholder="User"
-              name="user"
+              placeholder="Usuario"
               value={user}
               onChange={handleUserChange}
+              required
             />
           </div>
-          <div className="input-container">
-            <p>Password</p>
+          <div className="input-group">
             <input
-              className="login-input"
               type="password"
-              placeholder="Password"
-              name="password"
+              placeholder="Contraseña"
               value={password}
               onChange={handlePasswordChange}
+              required
             />
           </div>
-          <div className="login-button-container">
-            <button className="login-button" type="submit">Login</button>
-          </div>
+          <button type="submit" className="login-button">Acceder</button>
         </form>
       </div>
     </div>
@@ -85,9 +76,9 @@ async function fetchLogin(data, navigate) {
     console.log("Respuesta de la API:", result);
 
     if (!result.accessToken) {
-      alert("Invalid user or password");
+      alert("Usuario o contraseña incorrectos");
     } else {
-      alert("continuar");
+      alert("¡Bienvenido!");
 
       localStorage.setItem("token", result.accessToken);
       console.log("Token guardado en localStorage:", localStorage.getItem("token"));
@@ -96,9 +87,7 @@ async function fetchLogin(data, navigate) {
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("Error connecting to the server");
+    alert("Error al conectar con el servidor");
     navigate("/");
   }
 }
-
-

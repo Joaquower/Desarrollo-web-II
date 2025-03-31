@@ -1,0 +1,52 @@
+/* 📦 Contenedor principal */
+.no-products-container {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 500px;
+    margin: auto;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.no-products-image {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* 🔤 Título */
+.no-products-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 📄 Texto informativo */
+.no-products-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 🔙 Botón de regreso */
+.go-back-button {
+    background-color: #0073e6; /* Azul estilo Amazon */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.go-back-button:hover {
+    background-color: #005bb5;
+}
+
+.go-back-button:active {
+    transform: scale(0.95);
+}

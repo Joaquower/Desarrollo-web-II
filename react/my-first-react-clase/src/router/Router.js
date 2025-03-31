@@ -4,6 +4,8 @@ import About from '../page/About';
 import Contact from '../page/Contact';
 import Login from "../page/Login";
 import Products from '../page/Products';
+import Product from '../page/Product2';
+import Cart from '../page/Cart'; 
 import PrivateRoute from "./RouterPriv"; 
 
 export default function MyRouters() {
@@ -15,6 +17,9 @@ export default function MyRouters() {
             <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
             <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
             <Route path="/products" element={<PrivateRoute><Products /></PrivateRoute>} />
+            <Route path="/products2/:id" element={<PrivateRoute><Product /></PrivateRoute>} />
+
+            <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
         </Routes>
     );
 }
