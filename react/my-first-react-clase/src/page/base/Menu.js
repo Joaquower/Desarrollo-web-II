@@ -33,6 +33,7 @@ export default function Menu() {
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
                             <li><Link to="/products">Products</Link></li>
+                            <li><Link to="/CreateProduct">Crear producto</Link></li>
                             <li><Link to="/login">Login</Link></li>
                             <li className="cart-icon">
                                 <Link to="/cart">Carrito 

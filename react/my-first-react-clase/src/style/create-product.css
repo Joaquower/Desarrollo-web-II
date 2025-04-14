@@ -1,0 +1,47 @@
+/* Contenedor principal */
+.contianerprim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contenedor del producto */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estilos para los inputs */
+.product-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Contenedor para categoría y precio */
+.container-chiquito {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Input de categoría y precio */
+.categoria, .nombre {
+    width: 48%;
+    padding: 10px;
+    box-sizing: border-box;
+}

@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Viento en Tiempo Real</title>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8">
+  <title>Data Logger ESP32</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <h1>Mapa de Viento en Tiempo Real 🌬️</h1>
-    <div id="map"></div>
+  <h1>Data Logger ESP32</h1>
+  <p>Haz clic para descargar los datos registrados</p>
+  <button onclick="descargarArchivo()">Descargar</button>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <!-- Script Principal -->
-    <script src="script.js"></script>
-
+  <script>
+    function descargarArchivo() {
+      const ipESP = "10.10.4.132"; 
+      window.location.href = `http://${ipESP}/download`;
+    }
+  </script>
 </body>
 </html>

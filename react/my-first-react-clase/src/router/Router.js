@@ -5,8 +5,11 @@ import Contact from '../page/Contact';
 import Login from "../page/Login";
 import Products from '../page/Products';
 import Product from '../page/Product2';
+import CreateProduct from "../page/CreateProduct"; 
 import Cart from '../page/Cart'; 
 import PrivateRoute from "./RouterPriv"; 
+
+
 
 export default function MyRouters() {
     return (
@@ -18,6 +21,7 @@ export default function MyRouters() {
             <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
             <Route path="/products" element={<PrivateRoute><Products /></PrivateRoute>} />
             <Route path="/products2/:id" element={<PrivateRoute><Product /></PrivateRoute>} />
+            <Route path="/CreateProduct" element={<PrivateRoute><CreateProduct /></PrivateRoute>} />
 
             <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
         </Routes>
