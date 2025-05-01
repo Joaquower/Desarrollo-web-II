@@ -1,0 +1,100 @@
+.card {
+  position: relative;
+  width: 100%;
+  background: #0d0d0d;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.superhost-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: white;
+  color: #0d0d0d;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.description {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.amenities {
+  display: flex;
+  gap: 1rem;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.amenities span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.price {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.per-night {
+  color: white;
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+}
+
+.rating {
+  color: #ffd700;
+  font-size: 0.9rem;
+} 
